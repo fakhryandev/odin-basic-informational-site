@@ -11,6 +11,12 @@ const server = http.createServer((req, res) => {
       res.write(data);
       res.end();
     });
+  } else if (req.url == "/about") {
+    fs.readFile("./about.html", (err, data) => {
+      res.writeHeader(200, { "Content-Type": "text/html" });
+      res.write(data);
+      res.end();
+    });
   }
 });
 
