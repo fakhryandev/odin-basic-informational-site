@@ -24,6 +24,11 @@ const server = http.createServer((req, res) => {
       res.end();
     });
   }
+  fs.readFile("./404.html", (err, data) => {
+    res.writeHeader(200, { "Content-Type": "text/html" });
+    res.write(data);
+    res.end();
+  });
 });
 
 server.listen(port, hostname, () => {
